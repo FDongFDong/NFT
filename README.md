@@ -1,4 +1,34 @@
 
+# 목차
+
+- [목차](#목차)
+- [ERC-721](#erc-721)
+  - [Token URI](#token-uri)
+  - [변수](#변수)
+    - [\_tokenInfo : tokenIdD값으로 토큰 정보를 담는 mapping](#_tokeninfo--tokenidd값으로-토큰-정보를-담는-mapping)
+    - [\_owners : tokenID의 값으로 토큰 주인의 주소를 담는 mapping](#_owners--tokenid의-값으로-토큰-주인의-주소를-담는-mapping)
+    - [\_balances : 사용자의 주소로 token 개수를 담는 mapping](#_balances--사용자의-주소로-token-개수를-담는-mapping)
+    - [\_tokenApprovals : Token ID로 해당 토큰에 설정된 권한을 가진 주소를 담는 mapping](#_tokenapprovals--token-id로-해당-토큰에-설정된-권한을-가진-주소를-담는-mapping)
+    - [\_operatorApprovals : from, to, bool](#_operatorapprovals--from-to-bool)
+  - [생성자](#생성자)
+  - [함수](#함수)
+    - [mint() : 토큰 발행](#mint--토큰-발행)
+    - [burn() : 토큰 소각](#burn--토큰-소각)
+    - [transfer() : 토큰을 전송한다.](#transfer--토큰을-전송한다)
+    - [balanceOf() : 사용자의 토큰 개수를 확인한다.](#balanceof--사용자의-토큰-개수를-확인한다)
+    - [ownerOf() : 토큰의 주인을 확인할 수 있다.](#ownerof--토큰의-주인을-확인할-수-있다)
+    - [name() : 해당 컨트랙트의 이름을 확인한다.](#name--해당-컨트랙트의-이름을-확인한다)
+    - [symbold() : 해당 컨트랙트의 심볼을 확인한다.](#symbold--해당-컨트랙트의-심볼을-확인한다)
+    - [tokenURI() : 토큰이 가지고 있는 정보를 확인할 수 있다.](#tokenuri--토큰이-가지고-있는-정보를-확인할-수-있다)
+    - [getApproved() : 토큰에 설정된 권한을 가진 자의 주소를 확인할 수 있다.](#getapproved--토큰에-설정된-권한을-가진-자의-주소를-확인할-수-있다)
+    - [approve() :  특정 계정에게 자신이 소유한 NFT 1개를 사용할 수 있도록 권한을 주는 함수](#approve---특정-계정에게-자신이-소유한-nft-1개를-사용할-수-있도록-권한을-주는-함수)
+    - [isApprovedForAll(() : 특정 주소에 이동 권한을 넘겨줬는지 체크하는 함수](#isapprovedforall--특정-주소에-이동-권한을-넘겨줬는지-체크하는-함수)
+    - [setApprovalForAll() : 특정 주소에 내가가진 모든 NFT 권한을 넘겨주는 함수](#setapprovalforall--특정-주소에-내가가진-모든-nft-권한을-넘겨주는-함수)
+    - [transferFrom () : tokenID를 가진 NFT를 from주소에서 to 주소로 옮긴다.](#transferfrom---tokenid를-가진-nft를-from주소에서-to-주소로-옮긴다)
+- [전체 코드](#전체-코드)
+- [ERC721 - openzeppelin](#erc721---openzeppelin)
+- [ERC721 발행 - Opensea Testnet](#erc721-발행---opensea-testnet)
+
 # ERC-721
 
 ```solidity
@@ -73,9 +103,6 @@ contract ERC721{
 metadata.json 파일이 json 형태로 저장되어있으며 이미지의 URI와 관련 속성들이 함께 저장되어 있다.
 
 직접 블록에 이미지, 동영상 관련 정보를 넣게되면 용량도 크고 블록체인에 무리를 주게되기에 대안으로 파일이 위치한 TokenURI를 올리는 것이다.
-
-1. IPFS를 통해 이미지를 업로드한다.
-2. 
 
 ## 변수
 
