@@ -446,4 +446,7 @@ contract MyNFTs is ERC721URIStorage, Ownable {
 
 # ERC721 발행 - Opensea Testnet
 
-[](https://testnets.opensea.io/assets/goerli/0xa9768c3c78332b9085ab20de8dcaceb9de02f5bf/2)
+https://testnets.opensea.io/assets/goerli/0xa9768c3c78332b9085ab20de8dcaceb9de02f5bf/2
+
+![image](https://user-images.githubusercontent.com/20445415/218996701-f54be2e6-ee33-48ff-a9a1-c191e041e0ef.png)
+
