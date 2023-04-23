@@ -1,5 +1,5 @@
-import { Space } from '../components/Space/Space';
-import '@/styles/globals.css';
+import { Space } from '../components';
+import '../styles/globals.css';
 import styled from '@emotion/styled';
 import type { AppProps } from 'next/app';
 
@@ -21,6 +21,7 @@ const AppView = styled.div`
   width: 100%;
   height: 100%;
 `;
+
 const SpaceWrapper = styled.div`
   position: absolute;
   z-index: -1;
@@ -32,6 +33,6 @@ const ComponentWrapper = styled.div`
   width: 100%;
   height: 100%;
   padding: 20px;
-  overflow: auto;
+  overflow-y: auto;
 `;
 export default App;

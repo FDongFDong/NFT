@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { Inter } from 'next/font/google';
-import styles from '../styles/Home.module.css';
-import styled from '@emotion/styled';
-import { MenuView } from '@/components/MenuView';
-const inter = Inter({ subsets: ['latin'] });
 
-const ManiView = styled.div`
+import styled from '@emotion/styled';
+import { MenuView, Title } from '../components';
+import type { NextPage } from 'next';
+import { Button } from '@mui/material';
+import Link from 'next/link';
+const MainView = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
@@ -13,10 +13,24 @@ const ManiView = styled.div`
   justify-content: center;
 `;
 
-export default function Home() {
+const MenuButton = styled(Button)`
+  margin: 4px 0;
+`;
+const Home: NextPage = () => {
   return (
-    <ManiView>
-      <MenuView>asdf</MenuView>
-    </ManiView>
+    <MainView>
+      <MenuView>
+        <Title>CRYPTO SPACE</Title>
+        <Link href="/mint">
+          <MenuButton variant="outlined" size="large">
+            Minting Your Own Planet
+          </MenuButton>
+        </Link>
+        <MenuButton variant="outlined" size="large">
+          View All Planets
+        </MenuButton>
+      </MenuView>
+    </MainView>
   );
-}
+};
+export default Home;
