@@ -15,6 +15,7 @@ const MainView = styled.div`
 
 const MenuButton = styled(Button)`
   margin: 4px 0;
+  width: 100%;
 `;
 const Home: NextPage = () => {
   return (
@@ -26,9 +27,11 @@ const Home: NextPage = () => {
             Minting Your Own Planet
           </MenuButton>
         </Link>
-        <MenuButton variant="outlined" size="large">
-          View All Planets
-        </MenuButton>
+        <Link href="/">
+          <MenuButton variant="outlined" size="large">
+            View All Planets
+          </MenuButton>
+        </Link>
       </MenuView>
     </MainView>
   );

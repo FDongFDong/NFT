@@ -1,3 +1,4 @@
+import { SpaceContextProvider } from '@/contexts/useSpace';
 import { Space } from '../components';
 import '../styles/globals.css';
 import styled from '@emotion/styled';
@@ -5,15 +6,17 @@ import type { AppProps } from 'next/app';
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <AppView>
-      <SpaceWrapper>
-        <Space />
-      </SpaceWrapper>
+    <SpaceContextProvider>
+      <AppView>
+        <SpaceWrapper>
+          <Space />
+        </SpaceWrapper>
 
-      <ComponentWrapper>
-        <Component {...pageProps} />
-      </ComponentWrapper>
-    </AppView>
+        <ComponentWrapper>
+          <Component {...pageProps} />
+        </ComponentWrapper>
+      </AppView>
+    </SpaceContextProvider>
   );
 }
 

@@ -1,10 +1,30 @@
 import { MenuView, Title } from '@/components';
+import { PlanetList } from '@/components/Planet';
+import { SpaceContext } from '@/contexts/useSpace';
 import styled from '@emotion/styled';
 import { Button } from '@mui/material';
 import { NextPage } from 'next';
-import React from 'react';
+import { useRouter } from 'next/router';
+import React, { useContext, useEffect, useState } from 'react';
 
 const Mint: NextPage = () => {
+  const router = useRouter();
+  const { showPlanet, clearPlanet } = useContext(SpaceContext);
+  const [planetIndex, setPlanetIndex] = useState(-1);
+  const showRandomPlanet = () => {
+    setPlanetIndex(Math.floor(Math.random() * PlanetList.length));
+  };
+  useEffect(() => {
+    if (planetIndex >= 0) {
+      showPlanet(PlanetList[planetIndex]);
+    }
+    return () => clearPlanet();
+  }, [planetIndex, showPlanet, clearPlanet]);
+  useEffect(() => {
+    const interval = setInterval(() => showRandomPlanet(), 1000);
+    showRandomPlanet();
+    return () => clearInterval(interval);
+  }, []);
   return (
     <MainView>
       <MenuView>
@@ -19,7 +39,11 @@ const Mint: NextPage = () => {
           <MenuButton variant="contained" size="large">
             Mint Planet
           </MenuButton>
-          <MenuButton variant="outlined" size="large">
+          <MenuButton
+            variant="outlined"
+            size="large"
+            onClick={() => router.back()}
+          >
             Go Previous
           </MenuButton>
         </ButtonView>
@@ -34,6 +58,7 @@ const ButtonView = styled.div`
 `;
 
 const MainView = styled.div`
+  margin-top: 100px;
   width: 100%;
   height: 100%;
   display: flex;
