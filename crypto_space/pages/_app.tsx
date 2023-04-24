@@ -3,20 +3,23 @@ import { Space } from '../components';
 import '../styles/globals.css';
 import styled from '@emotion/styled';
 import type { AppProps } from 'next/app';
+import { Web3ContextProvider } from '@/contexts';
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <SpaceContextProvider>
-      <AppView>
-        <SpaceWrapper>
-          <Space />
-        </SpaceWrapper>
+    <Web3ContextProvider>
+      <SpaceContextProvider>
+        <AppView>
+          <SpaceWrapper>
+            <Space />
+          </SpaceWrapper>
 
-        <ComponentWrapper>
-          <Component {...pageProps} />
-        </ComponentWrapper>
-      </AppView>
-    </SpaceContextProvider>
+          <ComponentWrapper>
+            <Component {...pageProps} />
+          </ComponentWrapper>
+        </AppView>
+      </SpaceContextProvider>
+    </Web3ContextProvider>
   );
 }
 
